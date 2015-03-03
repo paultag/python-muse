@@ -59,3 +59,10 @@ class Tone(object):
 
     def __repr__(self):
         return "<Tone: {}>".format(self._tone_name)
+
+
+    def to_midi(self):
+        if self._modulo != 0:
+            raise ValueError("Error: Can't convert sub-semitones to MIDI.")
+        A4 = 69
+        return A4 + self._semitones
