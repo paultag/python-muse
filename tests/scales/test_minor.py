@@ -26,16 +26,18 @@ def take(it, count):
         yield next(it)
 
 
-SCALE = ['B♭4', 'C4', 'C♯4', 'E♭4', 'F4', 'F♯4', 'G♯4', 'B♭5']
+NATURAL_MINOR_SCALE = ['B♭4', 'C4', 'C♯4', 'E♭4', 'F4', 'F♯4', 'G♯4', 'B♭5']
+# http://en.wikipedia.org/wiki/File:MinorScale.svg
 
 
 def test_scale_acending_iteratation():
     cs = NaturalMinorScale(Tone(100))  # Bb4
     series = list(take(cs.acending(), 8))
-    assert [x._tone_name() for x in series] == SCALE
+    assert [x._tone_name() for x in series] == NATURAL_MINOR_SCALE
 
 
 def test_scale_acending_iteratation():
     cs = NaturalMinorScale(Tone(1300))  # Bb5
     series = list(take(cs.decending(), 8))
-    assert [x._tone_name() for x in series] == list(reversed(SCALE))
+    assert ([x._tone_name() for x in series] == list(
+        reversed(NATURAL_MINOR_SCALE)))
