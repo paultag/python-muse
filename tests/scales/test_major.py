@@ -36,6 +36,6 @@ def test_scale_acending_iteratation():
 
 
 def test_scale_decending_iteratation():
-    cs = MajorScale(Tone(1200))  # A4
+    cs = MajorScale(Tone(1200))  # A5
     series = list(take(cs.decending(), 8))
     assert [x._tone_name() for x in series] == list(reversed(SCALE))
