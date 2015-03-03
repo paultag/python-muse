@@ -35,24 +35,24 @@ HARMONIC_MINOR_SCALE = ['A4', 'B4', 'C4', 'D4', 'E4', 'F4', 'G♯4', 'A5']
 def test_scale_acending_iteratation():
     cs = NaturalMinorScale(Tone(100))  # Bb4
     series = list(take(cs.acending(), 8))
-    assert [x._tone_name() for x in series] == NATURAL_MINOR_SCALE
+    assert [x._tone_name for x in series] == NATURAL_MINOR_SCALE
 
 
 def test_scale_acending_iteratation():
     cs = NaturalMinorScale(Tone(1300))  # Bb5
     series = list(take(cs.decending(), 8))
-    assert ([x._tone_name() for x in series] == list(
+    assert ([x._tone_name for x in series] == list(
         reversed(NATURAL_MINOR_SCALE)))
 
 
 def test_scale_acending_iteratation():
     cs = HarmonicMinorScale(Tone(100))  # A4
     series = list(take(cs.acending(), 8))
-    assert [x._tone_name() for x in series] == HARMONIC_MINOR_SCALE
+    assert [x._tone_name for x in series] == HARMONIC_MINOR_SCALE
 
 
 def test_scale_acending_iteratation():
     cs = HarmonicMinorScale(Tone(1200))  # A5
     series = list(take(cs.decending(), 8))
-    assert ([x._tone_name() for x in series] == list(
+    assert ([x._tone_name for x in series] == list(
         reversed(HARMONIC_MINOR_SCALE)))

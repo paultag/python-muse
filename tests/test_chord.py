@@ -24,9 +24,9 @@ from muse.chords import chord, MAJOR, MINOR
 
 def test_major_chord_a4():
     c = chord(Tone(0), MAJOR)
-    assert [x._tone_name() for x in c] == ['A4', 'C♯4', 'E4']
+    assert [x._tone_name for x in c] == ['A4', 'C♯4', 'E4']
 
 
 def test_minor_chord_a4():
     c = chord(Tone(0), MINOR)
-    assert [x._tone_name() for x in c] == ['A4', 'C4', 'E4']
+    assert [x._tone_name for x in c] == ['A4', 'C4', 'E4']

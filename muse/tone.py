@@ -34,36 +34,28 @@ class Tone(object):
         """
         self.value = value
 
+        # Firstly, let's store if we're exactly tuned, or off.
+        self._modulo = self.value % 100  # Fractions of a semitone (cents)
+        self._semitones = self.value // 100
+        self._octave = self.value // 1200
+        name = TONE_NAMES[self._semitones % 12]
+        # We start on A4, so octive adds to 4.
+        octave_offset = 4 + self._octave
+        full_name = "{}{}".format(name, octave_offset)
+
+        if self._modulo == 0:
+            self._tone_name = full_name
+        else:
+            self._tone_name = "{} cents above {}".format(self._modulo, full_name)
+
     def relative_tone(self, increment):
         """
         Create a new Tone `increment` cents above or below this Tone.
         """
         return Tone(self.value + increment)
 
-    def _tone_name(self):
-        """
-        Return the name in either:
-
-          > N cents above NOTE
-          > NOTE
-
-        Where NOTE is something like C♯4
-        """
-        # Firstly, let's store if we're exactly tuned, or off.
-        modulo = self.value % 100  # Fractions of a semitone (cents)
-        semitones = self.value // 100
-        octave = self.value // 1200
-        name = TONE_NAMES[semitones % 12]
-        # We start on A4, so octive adds to 4.
-        octave_offset = 4 + octave
-        full_name = "{}{}".format(name, octave_offset)
-
-        if modulo == 0:
-            return full_name
-        return "{} cents above {}".format(modulo, full_name)
-
     def __str__(self):
-        return "<Tone: {}>".format(self._tone_name())
+        return "<Tone: {}>".format(self._tone_name)
 
     def __repr__(self):
-        return "<Tone: {}>".format(self._tone_name())
+        return "<Tone: {}>".format(self._tone_name)

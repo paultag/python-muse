@@ -32,10 +32,10 @@ SCALE = ["A4", "B4", "C♯4", "D4", "E4", "F♯4", "G♯4", "A5"]
 def test_scale_acending_iteratation():
     cs = MajorScale(Tone(0))  # A4
     series = list(take(cs.acending(), 8))
-    assert [x._tone_name() for x in series] == SCALE
+    assert [x._tone_name for x in series] == SCALE
 
 
 def test_scale_decending_iteratation():
     cs = MajorScale(Tone(1200))  # A5
     series = list(take(cs.decending(), 8))
-    assert [x._tone_name() for x in series] == list(reversed(SCALE))
+    assert [x._tone_name for x in series] == list(reversed(SCALE))

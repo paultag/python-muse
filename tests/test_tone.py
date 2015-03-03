@@ -23,25 +23,25 @@ from muse.tone import Tone
 
 def test_tone_name_Bb():
     tone = Tone(100)
-    x = tone._tone_name()
+    x = tone._tone_name
     assert x == "B♭4"
 
 
 def test_tone_name_Eb():
     tone = Tone(600)
-    x = tone._tone_name()
+    x = tone._tone_name
     assert x == "E♭4"
 
 
 def test_tone_name_Eb():
     tone = Tone(1200 + 600)
-    x = tone._tone_name()
+    x = tone._tone_name
     assert x == "E♭5"
 
 
 def test_tone_name_Eb():
     tone = Tone(605)
-    x = tone._tone_name()
+    x = tone._tone_name
     assert x == "5 cents above E♭4"
 
 

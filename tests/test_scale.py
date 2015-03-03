@@ -29,7 +29,7 @@ def take(it, count):
 def test_scale_acending_iteratation():
     cs = ChromaticScale(Tone(0))  # A4
     series = list(take(cs.acending(), 13))
-    assert [x._tone_name() for x in series] == [
+    assert [x._tone_name for x in series] == [
         'A4', 'B♭4', 'B4', 'C4', 'C♯4', 'D4', 'E♭4',
         'E4', 'F4', 'F♯4', 'G4', 'G♯4', 'A5']
 
@@ -37,6 +37,6 @@ def test_scale_acending_iteratation():
 def test_scale_decending_iteratation():
     cs = ChromaticScale(Tone(0))  # A4
     series = list(take(cs.decending(), 13))
-    assert [x._tone_name() for x in series] == [
+    assert [x._tone_name for x in series] == [
         'A4', 'G♯3', 'G3', 'F♯3', 'F3', 'E3', 'E♭3',
         'D3', 'C♯3', 'C3', 'B3', 'B♭3', 'A3']
