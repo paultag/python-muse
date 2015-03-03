@@ -24,6 +24,9 @@ from .scale import SEMITONE
 MAJOR = [0, SEMITONE * 4, SEMITONE * 7]
 MINOR = [0, SEMITONE * 3, SEMITONE * 7]
 
+MAJOR_7TH = [0, SEMITONE * 4, SEMITONE * 7, SEMITONE * 11]
+MINOR_7TH = [0, SEMITONE * 3, SEMITONE * 7, SEMITONE * 10]
+
 
 def chord(tone, pattern):
     return [tone.relative_tone(x) for x in pattern]
