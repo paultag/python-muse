@@ -61,6 +61,11 @@ class Tone(object):
 
     def to_midi(self):
         if self._modulo != 0:
+            """
+            XXX: We should be able to use the pitch bend stuff in MIDI to
+                 express this. Not quite sure how, yet. Anyway, someone
+                 smarter than me should do that.
+            """
             raise ValueError("Error: Can't convert sub-semitones to MIDI.")
         A4 = 69
         return A4 + self._semitones
