@@ -21,10 +21,13 @@
 from ..scale import SymmetricScale, SEMITONE, WHOLETONE
 
 
-# whole, whole, half, whole, whole, whole, half
-
-
 class MajorScale(SymmetricScale):
+    """
+    Major Scale
+
+        W, W, H, W, W, W, H
+    """
+
     SCALE = [WHOLETONE, WHOLETONE, SEMITONE,
              WHOLETONE, WHOLETONE, WHOLETONE,
              SEMITONE]
