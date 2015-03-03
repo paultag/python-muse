@@ -57,3 +57,12 @@ class Scale(object):
 
     def decending(self):
         return ScaleIterator(self.tonic, self.DECENDING)
+
+
+class SymmetricScale(Scale):
+    SCALE = None
+
+    def __init__(self, tonic):
+        super(SymmetricScale, self).__init__(tonic=tonic)
+        self.ASCENDING = self.SCALE
+        self.DECENDING = [-x for x in reversed(self.SCALE)]

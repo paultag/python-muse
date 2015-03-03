@@ -18,14 +18,13 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-from ..scale import Scale, SEMITONE, WHOLETONE
+from ..scale import SymmetricScale, SEMITONE, WHOLETONE
 
 
 # whole, whole, half, whole, whole, whole, half
 
 
-class MajorScale(Scale):
-    ASCENDING = [WHOLETONE, WHOLETONE, SEMITONE,
-                 WHOLETONE, WHOLETONE, WHOLETONE, SEMITONE]
-    DECENDING = [-SEMITONE, -WHOLETONE, -WHOLETONE, -WHOLETONE,
-                 -SEMITONE, -WHOLETONE, -WHOLETONE]
+class MajorScale(SymmetricScale):
+    SCALE = [WHOLETONE, WHOLETONE, SEMITONE,
+             WHOLETONE, WHOLETONE, WHOLETONE,
+             SEMITONE]

@@ -18,9 +18,8 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-from ..scale import Scale, SEMITONE, WHOLETONE
+from ..scale import SymmetricScale, SEMITONE, WHOLETONE
 
 
-class ChromaticScale(Scale):
-    ASCENDING = [SEMITONE] * 12
-    DECENDING = [-SEMITONE] * 12
+class ChromaticScale(SymmetricScale):
+    SCALE = [SEMITONE] * 12
