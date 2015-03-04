@@ -18,7 +18,8 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-from ..scale import SymmetricScale, SEMITONE, WHOLETONE
+from ..scale import SymmetricScale
+from ..tone import SEMITONE, WHOLETONE
 
 
 class NaturalMinorScale(SymmetricScale):
