@@ -19,14 +19,14 @@
 # DEALINGS IN THE SOFTWARE.
 
 from muse.tone import Tone
-from muse.chords import chord, MAJOR, MINOR
+from muse.chords import MAJOR, MINOR
 
 
 def test_major_chord_a4():
-    c = chord(Tone(0), MAJOR)
+    c = Tone(0).chord(MAJOR)
     assert [x._tone_name for x in c] == ['A4', 'C♯4', 'E4']
 
 
 def test_minor_chord_a4():
-    c = chord(Tone(0), MINOR)
+    c = Tone(0).chord(MINOR)
     assert [x._tone_name for x in c] == ['A4', 'C4', 'E4']

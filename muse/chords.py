@@ -56,7 +56,3 @@ AUGMENTED_SEVENTH = [PERFECT_UNISON, MAJOR_THIRD,
 
 AUGMENTED_MAJOR_SEVENTH = [PERFECT_UNISON, MAJOR_THIRD,
                            AUGMENTED_FIFTH, INT_MAJOR_SEVENTH]
-
-
-def chord(tone, pattern):
-    return [tone.relative_tone(x) for x in pattern]

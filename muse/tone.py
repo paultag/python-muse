@@ -56,6 +56,9 @@ class Tone(object):
         """
         return Tone(self.value + increment)
 
+    def chord(self, intervals):
+        return [self.relative_tone(x) for x in intervals]
+
     def __str__(self):
         return "<Tone: {}>".format(self._tone_name)
 
