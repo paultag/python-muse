@@ -18,12 +18,9 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-from .tone import Tone
+from .tone import Tone, WHOLETONE, SEMITONE
 from itertools import cycle
 
-
-SEMITONE = 100
-WHOLETONE = SEMITONE * 2
 
 
 class ScaleIterator(object):

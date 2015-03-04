@@ -20,6 +20,10 @@
 
 TONE_NAMES = ["A", "B♭", "B", "C", "C♯", "D", "E♭", "E", "F", "F♯", "G", "G♯"]
 
+SEMITONE = 100
+WHOLETONE = SEMITONE * 2
+
+
 
 class Tone(object):
 
