@@ -31,6 +31,29 @@ def note_to_cents(note, octave):
     return semitones + (octave * 1200)
 
 
+def str_to_cents(note):
+    if len(note) < 2:
+        raise ValueError("Note format must be like `C3` or `E♭5`")
+
+    modifier = note[1]
+    # This can either be sharp, flat or a number. This is the best way
+    # to figure out where to split without doing some munging.
+    if modifier in ["♯", "♭"]:
+        note_ = note[:2]
+        octave = note[2:]
+    else:
+        note_ = note[0]
+        octave = note[1:]
+
+    octave = int(octave)
+    return note_to_cents(note_, octave)
+
+
+def str_to_tone(note):
+    return Tone(str_to_cents(note))
+
+
+
 class Tone(object):
 
     def __init__(self, value):
@@ -47,7 +70,7 @@ class Tone(object):
         self._semitones = self.value // 100
         self._octave = self.value // 1200
         name = TONE_NAMES[self._semitones % 12]
-        # We start on A4, so octive adds to 4.
+        # We start on A4, so octave adds to 4.
         octave_offset = 4 + self._octave
         full_name = "{}{}".format(name, octave_offset)
 
