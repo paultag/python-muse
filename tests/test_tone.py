@@ -18,7 +18,7 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-from muse.tone import Tone, note_to_cents, str_to_cents, str_to_tone
+from muse.tone import Tone, note_to_cents, str_to_cents
 
 
 def test_tone_name_Bb():
@@ -61,7 +61,7 @@ def test_tone_str():
 
 
 def test_tone_tone():
-    assert str_to_tone("E♭4").value == 600
-    assert str_to_tone("A4").value == 0
-    assert str_to_tone("C102").value == 117900
-    assert str_to_tone("C♯2").value == -2000
+    assert Tone.from_string("E♭4").value == 600
+    assert Tone.from_string("A4").value == 0
+    assert Tone.from_string("C102").value == 117900
+    assert Tone.from_string("C♯2").value == -2000

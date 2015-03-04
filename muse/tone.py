@@ -49,11 +49,6 @@ def str_to_cents(note):
     return note_to_cents(note_, octave)
 
 
-def str_to_tone(note):
-    return Tone(str_to_cents(note))
-
-
-
 class Tone(object):
 
     def __init__(self, value):
@@ -78,6 +73,10 @@ class Tone(object):
             self._tone_name = full_name
         else:
             self._tone_name = "{} cents above {}".format(self._modulo, full_name)
+
+    @classmethod
+    def from_string(self, note):
+        return Tone(str_to_cents(note))
 
     def relative_tone(self, increment):
         """
