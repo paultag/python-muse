@@ -25,13 +25,19 @@ WHOLETONE = SEMITONE * 2
 
 
 
+def note_to_cents(note, octave):
+    semitones = TONE_NAMES.index(note) * SEMITONE
+    octave = octave - 4
+    return semitones + (octave * 1200)
+
+
 class Tone(object):
 
     def __init__(self, value):
         """
         `value` is defined as the number of cents above (positive) or below
         (negitive) ISO16 (A440) - A above middle C. Semitones align with
-        100 Cents. There are 12 Semitones in octive, making 1200 cents an octive
+        100 Cents. There are 12 Semitones in octave, making 1200 cents an octave
         above the root value.
         """
         self.value = value

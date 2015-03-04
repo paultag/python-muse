@@ -18,33 +18,36 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 
-from muse.tone import Tone
+from muse.tone import Tone, note_to_cents
 
 
 def test_tone_name_Bb():
     tone = Tone(100)
     x = tone._tone_name
     assert x == "B♭4"
+    assert note_to_cents("B♭", 4) == 100
 
 
-def test_tone_name_Eb():
+def test_tone_name_Eb4():
     tone = Tone(600)
     x = tone._tone_name
     assert x == "E♭4"
+    assert note_to_cents("E♭", 4) == 600
 
 
-def test_tone_name_Eb():
+def test_tone_name_Eb5():
     tone = Tone(1200 + 600)
     x = tone._tone_name
     assert x == "E♭5"
+    assert note_to_cents("E♭", 5) == 1200 + 600
 
 
-def test_tone_name_Eb():
+def test_tone_name_Eb5_plus():
     tone = Tone(605)
     x = tone._tone_name
     assert x == "5 cents above E♭4"
 
 
-def test_tone_str_Eb():
+def test_tone_str_Eb5_plus_str():
     tone = Tone(605)
     assert str(tone) == "<Tone: 5 cents above E♭4>"
