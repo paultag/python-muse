@@ -40,3 +40,21 @@ def test_scale_decending_iteratation():
     assert [x._tone_name for x in series] == [
         'A4', 'G♯3', 'G3', 'F♯3', 'F3', 'E3', 'E♭3',
         'D3', 'C♯3', 'C3', 'B3', 'B♭3', 'A3']
+
+
+def test_scale_acending_iteratation_range():
+    cs = ChromaticScale(Tone(0))  # A4
+    series = list(cs.acending())
+    assert [x._tone_name for x in series] == [
+        'A4', 'B♭4', 'B4', 'C4', 'C♯4', 'D4', 'E♭4',
+        'E4', 'F4', 'F♯4', 'G4', 'G♯4', 'A5']
+
+
+def test_scale_acending_iteratation_range():
+    cs = ChromaticScale(Tone(0))  # A4
+    series = list(take(cs.forever_acending(), 25))
+    assert [x._tone_name for x in series] == [
+        'A4', 'B♭4', 'B4', 'C4', 'C♯4', 'D4', 'E♭4',
+        'E4', 'F4', 'F♯4', 'G4', 'G♯4', 'A5',
+        'B♭5', 'B5', 'C5', 'C♯5', 'D5', 'E♭5',
+        'E5', 'F5', 'F♯5', 'G5', 'G♯5', 'A6']

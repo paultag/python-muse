@@ -27,11 +27,14 @@ class ScaleIterator(object):
     def __init__(self, tonic, series):
         self.tonic = tonic
         self._series = series
-        self.series = iter(cycle(series))
+        self.series = iter(series)
         self._cur_tone = None
 
     def interval_count(self):
         return len(self._series)
+
+    def __iter__(self):
+        return self
 
     def __next__(self):
         if self._cur_tone is None:
@@ -54,6 +57,12 @@ class Scale(object):
 
     def decending(self):
         return ScaleIterator(self.tonic, self.DECENDING)
+
+    def forever_acending(self):
+        return ScaleIterator(self.tonic, cycle(self.ASCENDING))
+
+    def forever_decending(self):
+        return ScaleIterator(self.tonic, cycle(self.DECENDING))
 
 
 class SymmetricScale(Scale):
