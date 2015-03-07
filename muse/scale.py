@@ -19,7 +19,7 @@
 # DEALINGS IN THE SOFTWARE.
 
 from .tone import Tone, WHOLETONE, SEMITONE
-from itertools import cycle
+from itertools import cycle, islice
 
 
 
@@ -51,6 +51,11 @@ class Scale(object):
 
     def __init__(self, tonic):
         self.tonic = tonic
+
+    def notes(self, notes):
+        mnote = max(notes)
+        rnotes = [0] + list(islice(self.forever_acending(), mnote))
+        return [rnotes[x] for x in notes]
 
     def acending(self):
         return ScaleIterator(self.tonic, self.ASCENDING)
